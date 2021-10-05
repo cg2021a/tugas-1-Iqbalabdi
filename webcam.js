@@ -18,12 +18,13 @@ function make_bevel(degree, px = 0, py = 0, radius = 1, start_degree = 0) {
   return points;
 }
 
-let w1_sudutKananAtas = make_bevel(100, -0.23, 0.279, 0.055, 55);
-let w1_sudutKananBawah = make_bevel(100, -0.035, 0.114, 0.065, 45);
+let w1_sudutKananAtas = make_bevel(90, -0.23, 0.279, 0.05, 55);
+let w1_sudutKananBawah = make_bevel(90, -0.04, 0.114, 0.065, 55);
 let w1_sudutKiriAtas = make_bevel(50, -0.74, -0.14, 0.06, 180);
-let w1_sudutKiriBawah = make_bevel(100, -0.555, -0.35, 0.06, 120);
-let w1_tengahLuar = make_bevel(360, -0.4, -0.1, 0.06, 0);
-let w1_tengahDalam = make_bevel(360, -0.4, -0.1, 0.04, 0);
+let w1_sudutKiriBawah = make_bevel(100, -0.55, -0.37, 0.04, 130);
+let w1_kameraLuar = make_bevel(360, -0.4, -0.1, 0.06, 0);
+let w1_kameraTengah = make_bevel(360, -0.4, -0.1, 0.04, 0);
+let w1_kamerahDalam = make_bevel(360, -0.4, -0.1, 0.02, 0);
 let w2_atas = make_bevel(90, 0.22, 0.3, 0.3, 0);
 let w2_bawah = make_bevel(90, 0.22, -0.46, 0.3, 90);
 let w2_kameraAtas = make_bevel(90, 0.52, 0.02, 0.04, 0);
@@ -68,8 +69,8 @@ let w1_atas = [
 let w1_depanKanan = [
     -0.2,  0.24,
     -0.185, 0.31,
-    0.015,0.16,
-    0.015,0.16,
+    0.015,0.15,
+    0.015,0.15,
     -0.2,  0.24,
      0,0.06,
 
@@ -78,11 +79,11 @@ let w1_depanKanan = [
 //prettier-ignore
 let w1_depanKiri = [
     -0.74,  -0.2,
-    -0.78,  -0.18,
-    -0.58,  -0.41,
+    -0.79,  -0.18,
+    -0.57,  -0.412,
 
     -0.74,  -0.2,
-    -0.58,  -0.41,
+    -0.57,  -0.412,
     -0.52, -0.4,
 ];
 
@@ -111,28 +112,10 @@ let w2_kamera = [
 ];
 
 let w2_kameraDepan = [
-    0.56, 0.01,
-    0.58, 0.01,
-    0.58, -0.13,
-    0.58, -0.13,
-    0.56, 0.01,
-    0.56, -0.13
+  0.56, 0.01, 0.58, 0.01, 0.58, -0.13, 0.58, -0.13, 0.56, 0.01, 0.56, -0.13,
 ];
 let w2_kabel1 = [
-    0.22, 0.015,
-    0.19, 0.015,
-    0.19, -0.11,
-    0.19, -0.11,
-    0.22, 0.015,
-    0.22, -0.11,
+  0.22, 0.015, 0.19, 0.015, 0.19, -0.11, 0.19, -0.11, 0.22, 0.015, 0.22, -0.11,
 ];
 
-let w2_kabel2 = [
-    0.19, 0,
-    0.05, 0,
-    0.05, -0.1,
-    0.05, -0.1,
-    0.19, 0,
-    0.19, -0.1,
-];
-
+let w2_kabel2 = [0.19, 0, 0.05, 0, 0.05, -0.1, 0.05, -0.1, 0.19, 0, 0.19, -0.1];
