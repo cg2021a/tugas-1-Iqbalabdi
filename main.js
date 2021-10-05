@@ -27,10 +27,15 @@ let vertices = [
   ...w1_sudutKiriBawah,
   ...w1_tengahLuar,
   ...w1_tengahDalam,
-  ...k2_atas,
-  ...k2_alas,
-  ...k2_shading,
-  ...k2_layar,
+  ...w2_depan,
+  ...w2_atas,
+  ...w2_bawah,
+  ...w2_kamera,
+  ...w2_kameraAtas,
+  ...w2_kameraBawah,
+  ...w2_kameraDepan,
+  ...w2_kabel1,
+  ...w2_kabel2,
 ];
 
 let vertexShaderCode = `
@@ -177,7 +182,7 @@ for (let i = 0; i < w1_tengahLuar.length / 2; i++) {
   88, 92, 89;
 }
 
-for (let i = 0; i < k2_atas.length / 2; i++) {
+for (let i = 0; i < w2_depan.length / 2; i++) {
   let r = 0.9;
   let g = 0.3;
   let b = 0.3;
@@ -186,7 +191,7 @@ for (let i = 0; i < k2_atas.length / 2; i++) {
   color.push(b);
   color.push(1);
 }
-for (let i = 0; i < k2_alas.length / 2; i++) {
+for (let i = 0; i < w2_atas.length / 2; i++) {
   let r = 0.7;
   let g = 0.3;
   let b = 0.3;
@@ -195,7 +200,7 @@ for (let i = 0; i < k2_alas.length / 2; i++) {
   color.push(b);
   color.push(1);
 }
-for (let i = 0; i < k2_shading.length / 2; i++) {
+for (let i = 0; i < w2_bawah.length / 2; i++) {
   let r = 1;
   let g = 0.4;
   let b = 0.4;
@@ -204,7 +209,37 @@ for (let i = 0; i < k2_shading.length / 2; i++) {
   color.push(b);
   color.push(1);
 }
-for (let i = 0; i < k2_layar.length / 2; i++) {
+for (let i = 0; i < w2_kamera.length / 2; i++) {
+  let r = 1;
+  let g = 0.6;
+  let b = 0.6;
+  color.push(r);
+  color.push(g);
+  color.push(b);
+  color.push(1);
+}
+
+for (let i = 0; i < w2_kameraAtas.length / 2; i++) {
+  let r = 1;
+  let g = 0.6;
+  let b = 0.6;
+  color.push(r);
+  color.push(g);
+  color.push(b);
+  color.push(1);
+}
+
+for (let i = 0; i < w2_kameraBawah.length / 2; i++) {
+  let r = 1;
+  let g = 0.6;
+  let b = 0.6;
+  color.push(r);
+  color.push(g);
+  color.push(b);
+  color.push(1);
+}
+
+for (let i = 0; i < w2_kameraDepan.length / 2; i++) {
   let r = 1;
   let g = 0.6;
   let b = 0.6;
@@ -227,7 +262,7 @@ gl.vertexAttribPointer(coords, 2, gl.FLOAT, false, 0, 0);
 gl.enableVertexAttribArray(coords);
 
 let positionY = 0;
-let speed = 0.0128;
+let speed = 0.001;
 function drawScene() {
   positionY >= 0.8 ? (speed = -speed) : (speed = speed);
   positionY <= -0.8 ? (speed = -speed) : (speed = speed);
@@ -252,13 +287,33 @@ function drawScene() {
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   const u_matrix = gl.getUniformLocation(shaderProgram, "u_matrix");
-  // gl.uniformMatrix4fv(u_matrix, false, rightObject);
+  gl.uniformMatrix4fv(u_matrix, false, rightObject);
 
-  //   gl.drawArrays(
-  //     gl.TRIANGLES,
-  //     (w1_depan.length + w1_brand.length + w1_kanan.length + w1_atas.length) / 2,
-  //     (k2_atas.length + k2_alas.length + k2_shading.length + k2_layar.length) / 2
-  //   );
+  gl.drawArrays(
+    gl.TRIANGLES,
+    (w1_depan.length +
+      w1_depanKanan.length +
+      w1_brand.length +
+      w1_depanKiri.length +
+      w1_atas.length +
+      w1_sudutKananAtas.length +
+      w1_sudutKananBawah.length +
+      w1_sudutKiriAtas.length +
+      w1_sudutKiriBawah.length +
+      w1_tengahLuar.length +
+      w1_tengahDalam.length) /
+      2,
+    (w2_depan.length +
+      w2_atas.length +
+      w2_bawah.length +
+      w2_kamera.length +
+      w2_kameraAtas.length +
+      w2_kameraBawah.length +
+      w2_kameraDepan.length +
+      w2_kabel1.length +
+      w2_kabel2.length ) /
+      2
+  );
 
   gl.uniformMatrix4fv(u_matrix, false, leftObject);
   gl.drawArrays(
