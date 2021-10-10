@@ -1,0 +1,29 @@
+* {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  color: #000000;
+}
+
+.select-light {
+  display: flexbox;
+}
+
+p {
+  font-size: 15px;
+}
+
+select {
+  width: auto;
+  height: auto;
+  font-size: large;
+  color: rgb(0, 0, 0);
+}
+
+.light {
+  border-radius: 4px;
+  border: 2px solid rgb(0, 0, 0);
+}
