@@ -1,0 +1,9 @@
+{
+  "name": "Folder-satu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/three": "^0.133.1"
+  }
+}
